@@ -1,24 +1,17 @@
 import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+import {setupQrcodeGenerator} from "./generate-qrcode.js";
 
 document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
+  <div class="w-screen h-screen">
+   <div class="w-full h-full flex flex-col items-center justify-center gap-8">
+        <img src="qr_code.png"  alt="" class="w-[150px]"/>
+        <div class="flex items-center justify-center w-[500px] gap-2">
+        <input type="url" name="url" id="url" class="flex-1 border border-[0.5px] border-gray-600 ring-0 outline-0 px-4 py-1" />
+        <button id="qrcode-generator" class="bg-sky-900 text-white px-4 py-2 rounded text-sm">Generate QrCode</button>
+</div>
     </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
   </div>
 `
 
-setupCounter(document.querySelector('#counter'))
+setupQrcodeGenerator(document.querySelector('#qrcode-generator'))
+
