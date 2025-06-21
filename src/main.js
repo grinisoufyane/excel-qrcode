@@ -2,17 +2,28 @@ import './style.css'
 import {setupQrcodeGenerator} from "./generate-qrcode.js";
 
 document.querySelector('#app').innerHTML = `
-  <div class="w-screen h-screen">
-    <div class="w-full h-full flex flex-col items-center justify-center gap-8 px-4">
-      <img src="qr_code.png" alt="" class="w-[150px]" />
-      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center w-full max-w-[500px] gap-2">
-        <input type="url" name="url" id="url"
-          class="flex-1 border border-[0.5px] border-gray-600 ring-0 outline-0 px-4 py-2 text-sm" />
+  <div class="w-screen min-h-screen bg-gray-50 p-4">
+    <div class="max-w-lg mx-auto flex flex-col items-center justify-center gap-6">
+      <img src="qr_code.png" alt="" class="w-[150px]" id="preview-img" />
+      
+      <div class="w-full flex flex-col gap-3">
+        <input type="url" id="url" placeholder="Enter URL..."
+          class="w-full border border-gray-400 rounded px-4 py-2 text-sm outline-none focus:ring-2 ring-sky-500" />
+
+        <input type="text" id="title" placeholder="Enter title (optional)"
+          class="w-full border border-gray-400 rounded px-4 py-2 text-sm outline-none focus:ring-2 ring-sky-500" />
+
+        <input type="file" id="logo" accept="image/*"
+          class="w-full text-sm text-gray-600 file:bg-sky-900 file:text-white file:rounded file:px-3 file:py-1 file:border-0" />
+
         <button id="qrcode-generator"
-          class="bg-sky-900 text-white px-4 py-2 rounded text-sm w-full sm:w-auto">Generate QrCode</button>
+          class="bg-sky-900 text-white px-4 py-2 rounded text-sm w-full hover:bg-sky-800 transition">
+          Generate QR Code
+        </button>
       </div>
     </div>
   </div>
 `
+
 setupQrcodeGenerator(document.querySelector('#qrcode-generator'))
 
