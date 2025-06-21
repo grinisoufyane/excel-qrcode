@@ -14,7 +14,5 @@ document.querySelector('#app').innerHTML = `
     </div>
   </div>
 `
-
-
 setupQrcodeGenerator(document.querySelector('#qrcode-generator'))
 
