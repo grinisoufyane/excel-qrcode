@@ -99,7 +99,7 @@ export function setupQrcodeGenerator(buttonElement) {
 
 
             // Step 4: Update image preview (optional)
-            document.querySelector('#preview-img').src = finalCanvas.toDataURL('image/png')
+            // document.querySelector('#preview-img').src = finalCanvas.toDataURL('image/png')
 
             // Step 5: Download QR code
             const link = document.createElement('a')
